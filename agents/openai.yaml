@@ -1,0 +1,6 @@
+interface:
+  display_name: "打车报销月度汇总"
+  short_description: "汇总全员打车报销并生成可打印的汇总表与材料"
+  default_prompt: "Use $taxi-reimburse-admin to 汇总 YYYY-MM 的打车报销并整理打印材料。"
+policy:
+  allow_implicit_invocation: true

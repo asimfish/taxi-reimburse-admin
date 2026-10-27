@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "skill": "taxi-reimburse-admin",
+  "dimensions": ["correctness", "discoverability", "effectiveness", "efficiency", "security"],
+  "activation_cases": [
+    {"id": "positive-explicit", "prompt": "使用 taxi-reimburse-admin 汇总 10 月份所有人的打车报销", "should_activate": true},
+    {"id": "positive-natural", "prompt": "这个月大家的打车材料都交齐了，帮我出汇总表和按序号排好的打印材料", "should_activate": true},
+    {"id": "negative-self-check", "prompt": "使用 taxi-reimburse-check 检查我自己的报销材料", "should_activate": false},
+    {"id": "negative-unrelated", "prompt": "把这张 Excel 表格改成横向打印", "should_activate": false}
+  ],
+  "rubric": {
+    "correctness": "汇总表每条都有对得上的凭证，verify 通过，金额与支付/发票一致。",
+    "discoverability": "管理员月度汇总时触发；个人自查与一般表格操作不触发。",
+    "effectiveness": "交付可直接打印的汇总表、按序号标注的打印材料和发票合并，并列出待确认事项。",
+    "efficiency": "批量检查一次完成，管理员只处理存疑项。",
+    "security": "原始材料只读；删除/修改行程需管理员确认。"
+  }
+}
